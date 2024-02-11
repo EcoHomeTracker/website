@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -7,7 +7,6 @@ import Link from 'next/link'
 import { Bars3Icon, ChevronUpIcon } from '@heroicons/react/24/outline'
 
 import Button from './Button'
-import { useSearchParams } from 'next/navigation'
 
 export default function MobileMenu() {
   const showMenu = useSearchParams().get('showMenu') === 'true'
@@ -28,7 +27,7 @@ export default function MobileMenu() {
         />
         <Link
           className='flex h-9 w-9 cursor-pointer items-center justify-center rounded-md duration-300 hover:bg-gray-800'
-          href={`?showMenu=${!showMenu}`}
+          href={{ search: 'showMenu=' + !showMenu }}
         >
           {!showMenu && <Bars3Icon className='h-6 w-6' />}
           {showMenu && <ChevronUpIcon className='h-6 w-6' />}

@@ -4,6 +4,7 @@ import './globals.css'
 
 import Navbar from '@/components/Navbar'
 import ScreenBlur from '@/components/ScreenBlur'
+import { Suspense } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,7 +23,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <Navbar />
         {children}
-        <ScreenBlur />
+        <Suspense>
+          <ScreenBlur />
+        </Suspense>
       </body>
     </html>
   )

@@ -1,11 +1,12 @@
-import Image from 'next/image'
-
+import { Suspense } from 'react'
 import MobileMenu from './MobileMenu'
 
 export default function Navbar() {
   return (
     <nav className='relative w-full'>
-      <MobileMenu />
+      <Suspense>
+        <MobileMenu />
+      </Suspense>
     </nav>
   )
 }
